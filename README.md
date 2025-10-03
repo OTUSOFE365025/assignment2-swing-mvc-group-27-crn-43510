@@ -45,9 +45,11 @@ The example provided in the src files follows the **MVC pattern** by separating 
 This demonstrates the **core MVC idea**: the model holds data, the view displays it, and the controller handles interactions.  
 
 However, it is a little different from the **conventional MVC pattern that was taught in lectures**:  
-1. In a pure MVC example, the controller usually manages events, while in here the controller directly attaches Swing listeners to view components.  
-2. The model is very simple and only stores data, without any additional business logic.  
-3. The controller uses `JOptionPane` (which is a GUI element) to show messages, which normally would belong to the view component.  
+- **Event Handling:** The controller directly attaches Swing listeners to the view, whereas in pure MVC the controller manages all input separately.  
+- **Model:** It is just a simple data container without business logic.  
+- **Controller Coupling:** Uses `JOptionPane` (GUI code), which would normally belong in the view.  
+- **Observer Pattern:** Not used. In lectures, the model notifies views automatically, but here the controller updates the view directly.  
+- **Coupling:** This design is more tightly coupled, making it less flexible than the observer-based MVC taught in class.   
 
 The code follows MVC principles but adapts them for **practical Swing applications** by allowing the controller to handle events directly and the view to show dialogs. This makes the implementation simpler but less strictly separated than a textbook MVC example that we were taught in our lectures.   
 
