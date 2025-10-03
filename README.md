@@ -11,7 +11,12 @@ Example of an MVC design based on Swing. Answer questions 1 & 2 in this README f
 ## 📌 Question 1: Swing Framework
 
 **Q: What is the purpose of the Swing framework?** 
- 
+
+The Swing framework is a Java Graphical User Interface (GUI) toolkit which provides a wide range of user interface components for building graphical desktop applications. It is part of Java Foundation Classes (JFC) and is built on top of the Abstract Window Toolkit (AWT). It provides more flexible, lightweight and platform independent components than AWT. Swing also supports a pluggable look and feel feature, that allows the appearance of an interface to be changed at runtime without code modification.
+
+Swing provides commonly used components such as JButton, JLabel, and JTextField for building interactive and user-friendly interfaces.
+
+By implementing the Model-View-Controller (MVC) pattern across its components, Swing ensures a clear separation between data, user interface and control logic, resulting in interfaces that are easier to maintain, extend and customize.
 
 **Class Diagram of Swing Components (Draft):**
 
