@@ -1,0 +1,4 @@
+12345,Hot Chocolate,3.49
+67890,Timbits,2.50
+54321,Wrap,6.75
+98765,Bagel,3.00
