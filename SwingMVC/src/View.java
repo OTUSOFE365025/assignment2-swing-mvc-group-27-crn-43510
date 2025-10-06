@@ -1,136 +1,40 @@
-import java.awt.BorderLayout;
- 
-import javax.swing.GroupLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
+// View.java: Handles the display of scanned items and running subtotal
+import javax.swing.*;
+import java.awt.*;
 
 public class View {
-	// View uses Swing framework to display UI to user
-	 private JFrame frame;
-	 private JLabel firstnameLabel;
-	 private JLabel lastnameLabel;
-	 private JTextField firstnameTextfield;
-	 private JTextField lastnameTextfield;
-	 private JButton firstnameSaveButton;
-	 private JButton lastnameSaveButton;
-	 private JButton hello;
-	 private JButton bye;
-	 
-	 public View(String title) {
-	  frame = new JFrame(title);
-	  frame.getContentPane().setLayout(new BorderLayout());
-	  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	  frame.setSize(500, 120);
-	  frame.setLocationRelativeTo(null);
-	  frame.setVisible(true);
-	 
-	  // Create UI elements
-	  firstnameLabel = new JLabel("Firstname :");
-	  lastnameLabel = new JLabel("Lastname :");
-	  firstnameTextfield = new JTextField();
-	  lastnameTextfield = new JTextField();
-	  firstnameSaveButton = new JButton("Save firstname");
-	  lastnameSaveButton = new JButton("Save lastname");
-	  hello = new JButton("Hello!");
-	  bye = new JButton("Bye!");
-	 
-	  // Add UI element to frame
-	  GroupLayout layout = new GroupLayout(frame.getContentPane());
-	  layout.setAutoCreateGaps(true);
-	  layout.setAutoCreateContainerGaps(true);
-	  layout.setHorizontalGroup(layout.createSequentialGroup()
-	    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(firstnameLabel)
-	    .addComponent(lastnameLabel))
-	    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(firstnameTextfield)
-	    .addComponent(lastnameTextfield))
-	    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(firstnameSaveButton)
-	    .addComponent(lastnameSaveButton))
-	    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(hello)
-	    .addComponent(bye)));
-	  layout.setVerticalGroup(layout.createSequentialGroup()
-	    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(firstnameLabel)
-	    .addComponent(firstnameTextfield).addComponent(firstnameSaveButton).addComponent(hello))
-	    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(lastnameLabel)
-	    .addComponent(lastnameTextfield).addComponent(lastnameSaveButton).addComponent(bye)));
-	 
-	  layout.linkSize(SwingConstants.HORIZONTAL, firstnameSaveButton, lastnameSaveButton);
-	  layout.linkSize(SwingConstants.HORIZONTAL, hello, bye);
-	  frame.getContentPane().setLayout(layout);
-	 }
-	 
-	 public JFrame getFrame() {
-	  return frame;
-	 }
-	 
-	 public void setFrame(JFrame frame) {
-	  this.frame = frame;
-	 }
-	 
-	 public JLabel getFirstnameLabel() {
-	  return firstnameLabel;
-	 }
-	 
-	 public void setFirstnameLabel(JLabel firstnameLabel) {
-	  this.firstnameLabel = firstnameLabel;
-	 }
-	 
-	 public JLabel getLastnameLabel() {
-	  return lastnameLabel;
-	 }
-	 
-	 public void setLastnameLabel(JLabel lastnameLabel) {
-	  this.lastnameLabel = lastnameLabel;
-	 }
-	 
-	 public JTextField getFirstnameTextfield() {
-	  return firstnameTextfield;
-	 }
-	 
-	 public void setFirstnameTextfield(JTextField firstnameTextfield) {
-	  this.firstnameTextfield = firstnameTextfield;
-	 }
-	 
-	 public JTextField getLastnameTextfield() {
-	  return lastnameTextfield;
-	 }
-	 
-	 public void setLastnameTextfield(JTextField lastnameTextfield) {
-	  this.lastnameTextfield = lastnameTextfield;
-	 }
-	 
-	 public JButton getFirstnameSaveButton() {
-	  return firstnameSaveButton;
-	 }
-	 
-	 public void setFirstnameSaveButton(JButton firstnameSaveButton) {
-	  this.firstnameSaveButton = firstnameSaveButton;
-	 }
-	 
-	 public JButton getLastnameSaveButton() {
-	  return lastnameSaveButton;
-	 }
-	 
-	 public void setLastnameSaveButton(JButton lastnameSaveButton) {
-	  this.lastnameSaveButton = lastnameSaveButton;
-	 }
-	 
-	 public JButton getHello() {
-	  return hello;
-	 }
-	 
-	 public void setHello(JButton hello) {
-	  this.hello = hello;
-	 }
-	 
-	 public JButton getBye() {
-	  return bye;
-	 }
-	 
-	 public void setBye(JButton bye) {
-	  this.bye = bye;
-	 }
-	 
+    private JFrame frame;                 //TMain window
+    private DefaultListModel<String> itemListModel; // Holds list of all the scanned items
+    private JList<String> itemList;       // UI component to show all scanned items (scrollable)
+    private JLabel subtotalLabel;         // Displays real-time subtotal
+
+    public View(String title) {
+        frame = new JFrame(title);     //creates a window with customized title      
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 300); //setting window size
+        frame.setLayout(new BorderLayout());
+
+        // Set up list to show scanned items with scroll
+        itemListModel = new DefaultListModel<>();
+        itemList = new JList<>(itemListModel);
+        JScrollPane scrollPane = new JScrollPane(itemList); //makes list scrollable
+
+        subtotalLabel = new JLabel("Subtotal: $0.00"); // Initial subtotal label
+
+        // Add components to the window
+        frame.add(scrollPane, BorderLayout.CENTER); // Add scrollable list to center 
+        frame.add(subtotalLabel, BorderLayout.SOUTH); // Add subtotal label at the bottom
+
+        frame.setVisible(true); // Show the window
+    }
+
+    // Add a new item as text to the displayed list
+    public void addItem(String item) {
+        itemListModel.addElement(item);
+    }
+
+    // Update the subtotal display
+    public void updateSubtotal(double subtotal) {
+        subtotalLabel.setText("Subtotal: $" + String.format("%.2f", subtotal)); //updates the subtotal label in real time
+    }
 }
