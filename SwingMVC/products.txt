@@ -2,3 +2,18 @@
 67890,Timbits,2.50
 54321,Wrap,6.75
 98765,Bagel,3.00
+38929,Pizza,6.00
+11223,Latte,4.25
+33445,Croissant,2.75
+55667,Sandwich,5.50
+77889,Muffin,2.50
+99001,Tea,1.99
+10101,Cappuccino,4.50
+20202,Donut,1.25
+30303,Chocolate Bar,1.75
+40404,Granola Bar,2.00
+50505,Apple Juice,2.99
+20221,Chocolate Milk,2.75
+21212,Smoothie,4.99
+22222,Brownie,3.25
+23232,Macaron,1.99
