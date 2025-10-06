@@ -1,70 +1,46 @@
-// This window emulates the scanning of an item. Every time the buttom is pressed
-// it will send a notification of a UPC code
+//Scanner.java: Represents a barcode scanner. Each time the "scan" button is pressed,
+// a random product is selected and UPC code is returned
 
 import java.awt.BorderLayout;
- 
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
-import javax.swing.JPanel;
-
+import javax.swing.*;
+import java.util.*;
 
 public class Scanner {
-	// Scanner uses Swing framework to create a UPC code
-	 private JFrame frame;
-	 private JPanel scannerPanel;
-	 private JButton scanButton;
-	 
-	 public Scanner() {
-		  frame = new JFrame("Scanner");
-		  frame.getContentPane().setLayout(new BorderLayout());
-		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		  frame.setSize(100, 100);
-		  frame.setLocation(300,50);
-		  frame.setVisible(true);
-		  
-		  
-		  // Create UI elements
-		  scanButton = new JButton("Scan");
-		  scannerPanel = new JPanel();
-		  
-		  // Add UI element to frame
-		  scannerPanel.add(scanButton);
-		  frame.getContentPane().add(scannerPanel);
-		  
-		  scanButton.addActionListener(e -> generateUPC());
-	 }
+    private JFrame frame;
+    private JPanel scannerPanel;
+    private JButton scanButton;
+    private CashRegister cashRegister;
+    private Random random;
 
-	private int generateUPC() {
-		int upcCode = 12345; 
-		System.out.println(upcCode);
-		return upcCode;
-	}
+    // Passing CashRegister so Scanner knows the products
+    public Scanner(CashRegister cashRegister) {
+        this.cashRegister = cashRegister;
+        this.random = new Random();
 
-	public JFrame getFrame() {
-		return frame;
-	}
+        frame = new JFrame("Scanner");
+        frame.getContentPane().setLayout(new BorderLayout());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(150, 100);
+        frame.setLocation(300, 50);
 
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
+        scanButton = new JButton("Scan");
+        scannerPanel = new JPanel();
+        scannerPanel.add(scanButton);
+        frame.getContentPane().add(scannerPanel);
 
-	public JPanel getScannerPanel() {
-		return scannerPanel;
-	}
+        frame.setVisible(true);
+    }
 
-	public void setScannerPanel(JPanel scannerPanel) {
-		this.scannerPanel = scannerPanel;
-	}
+    // Picking a random product's UPC
+    public String generateUPC() {
+        List<String> upcs = cashRegister.getAllUPCs();
+        int idx = random.nextInt(upcs.size());
+        String upc = upcs.get(idx);
+        System.out.println("Scanned UPC: " + upc);
+        return upc;
+    }
 
-	public JButton getScanButton() {
-		return scanButton;
-	}
-
-	public void setScanButton(JButton scanButton) {
-		this.scanButton = scanButton;
-	}	 
-	 
-
+    public JButton getScanButton() {
+        return scanButton;
+    }
 }
