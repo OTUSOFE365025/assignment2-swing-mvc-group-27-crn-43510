@@ -6,7 +6,7 @@ Example of an MVC design based on Swing. Answer questions 1 & 2 in this README f
 |-------------------|------------|----------------|----------|
 | Khushi Patel         | 100940709     | ReadME formatting, Q2, Code | khushi.patel9@ontariotechu.net |
 | Prabhnoor Saini         | 100946515    | Q1, Code | prabhnoor.saini@ontariotechu.net |
-| Hadia Ali         | 100876605   | Sequence Diagram | hadia.ali@ontariotechu.net |
+| Hadia Ali         | 100876605   | Class Diagram, Sequence Diagram | hadia.ali@ontariotechu.net |
 
 ## 📌 Question 1: Swing Framework
 
