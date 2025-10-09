@@ -21,7 +21,7 @@ By implementing the Model-View-Controller (MVC) pattern across its components, S
 **Class Diagram of Swing Components:**
 
 <p align="center">
-  <img src="Images/Class Diagram.png" alt="Class Diagram" width="600"/>
+  <img src="Images/Class Diagram.png" alt="Class Diagram" width="800"/>
 </p>
 
 ## 📌 Question 2: MVC Example from GitHub Repository
