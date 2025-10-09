@@ -1,6 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/57HVEcop)
-Example of an MVC design based on Swing. Answer questions 1 & 2 in this README file.
-
 # Assignment 2: Architectural MVC Patterns and Frameworks
 | Group Member Name | Student ID | Responsibility | Email ID |
 |-------------------|------------|----------------|----------|
@@ -72,3 +69,67 @@ The code follows MVC principles but adapts them for **practical Swing applicatio
 
 <img src="Images/Output2.png" alt="Sequence Diagram" width='700' /> 
 
+# 🧾 Cash Register (Java Swing MVC)
+
+A simple **Cash Register simulation** built using **Java Swing** and the **Model-View-Controller (MVC)** design pattern.  
+The application demonstrates how a barcode scanner interacts with a cash register system, scanning products, updating the subtotal, and displaying items in real time.
+
+
+## 🧠 Overview
+This project mimics a small point-of-sale (POS) system:
+- Products are loaded from a `products.txt` file. (format: UPC, product_name, product_price)  
+- The **Scanner java** simulates random barcode scans.
+- The **View java** displays scanned items and a live subtotal.
+- The **Controller** connects the scanner, view, and model to coordinate actions.
+
+
+## 🏗️ Project Structure
+
+| File | Description |
+|------|--------------|
+| `CashRegister.java` | Model — Loads product data and handles scanned item tracking. |
+| `Product.java` | Represents a single product with UPC, name, and price. |
+| `View.java` | View — Displays scanned products and subtotal using Swing components. |
+| `Scanner.java` | Simulates a barcode scanner that randomly scans a product. |
+| `Controller.java` | Controller — Connects the model, view, and scanner for interaction. |
+| `MySwingMVCApp.java` | Main driver class — Initializes and runs the whole system. |
+| `products.txt` | Text file containing sample products with UPC, name, and price. |
+
+## ⚙️ How to Run (in IntelliJ IDEA)
+
+1. **Clone or copy** the entire project folder to your computer.  
+2. Open the project in **IntelliJ IDEA**.  
+3. Make sure all `.java` files are located inside the **`src/`** folder.  
+4. Place `products.txt` in the **project root directory** (same level as `src`).  
+5. Open `MySwingMVCApp.java`.  
+6. Click **Run ▶️** to start the application.
+
+✅ Two windows will appear:
+- **Scanner Window** → Simulates product scans and shows us the UPC  .  
+- **Cash Register Window** → Displays scanned products and subtotal in real-time.
+
+## 🧩 How It Works
+
+1. The **Cash Register** (`CashRegister.java`) loads product details from `products.txt`.  
+2. The **Scanner** (`Scanner.java`) simulates barcode scanning by randomly picking a UPC from the loaded list.  
+3. The **Controller** (`Controller.java`) passes the scanned product to the model and updates the view.  
+4. The **View** (`View.java`) displays the scanned item and updates the subtotal dynamically.  
+
+💡 The system follows the **MVC (Model–View–Controller)** design pattern for clean separation of logic, UI, and data handling.
+
+## 🧰 Technologies Used
+
+- **Java (JDK 8 or higher)**
+- **Java Swing (GUI Toolkit)**
+- **IntelliJ IDEA (Recommended IDE)**
+- **File I/O** (`BufferedReader`, `FileReader`)
+- **Collections Framework** (`HashMap`, `ArrayList`)
+
+## 👩‍💻 Authors
+
+- **Khushi Patel**  
+- **Prabhnoor Saini**  
+- **Hadia Ali**  
+
+*Ontario Tech University*  
+*Created as a collaborative project to demonstrate MVC architecture and GUI programming in Java.*
