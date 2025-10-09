@@ -5,7 +5,7 @@ Example of an MVC design based on Swing. Answer questions 1 & 2 in this README f
 | Group Member Name | Student ID | Responsibility | Email ID |
 |-------------------|------------|----------------|----------|
 | Khushi Patel         | 100940709     | ReadME formatting, Q2, Code | khushi.patel9@ontariotechu.net |
-| Prabhnoor Saini         | 100946515    | Q1, Code | prabhnoor.saini@ontariotechu.net |
+| Prabhnoor Saini         | 100946515    | ReadME formatting, Q1, Code | prabhnoor.saini@ontariotechu.net |
 | Hadia Ali         | 100876605   | Class Diagram, Sequence Diagram | hadia.ali@ontariotechu.net |
 
 ## 📌 Question 1: Swing Framework
@@ -58,3 +58,4 @@ However, it is a little different from the **conventional MVC pattern that was t
 The code follows MVC principles but adapts them for **practical Swing applications** by allowing the controller to handle events directly and the view to show dialogs. This makes the implementation simpler but less strictly separated than a textbook MVC example that we were taught in our lectures.   
 
 
+## Sequence Diagram 📝
