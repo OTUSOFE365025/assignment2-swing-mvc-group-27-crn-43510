@@ -18,7 +18,7 @@ Swing provides commonly used components such as JButton, JLabel, and JTextField 
 
 By implementing the Model-View-Controller (MVC) pattern across its components, Swing ensures a clear separation between data, user interface and control logic, resulting in interfaces that are easier to maintain, extend and customize.
 
-**Class Diagram of Swing Components (Draft):**
+**Class Diagram of Swing Components:**
 
 <p align="center">
   <img src="Images/Class Diagram.png" alt="Class Diagram" width="600"/>
