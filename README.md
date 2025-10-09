@@ -70,5 +70,5 @@ The code follows MVC principles but adapts them for **practical Swing applicatio
 <img src="Images/Output1.png" alt="Output Screenshot" width='500'/> 
 
 
-<img src="Images/Output2.png" alt="Sequence Diagram" width='500' /> 
+<img src="Images/Output2.png" alt="Sequence Diagram" width='700' /> 
 
