@@ -59,3 +59,7 @@ The code follows MVC principles but adapts them for **practical Swing applicatio
 
 
 ## Sequence Diagram 📝
+
+<p align="center">
+  <img src="Images/Sequence Diagram (1).png" alt="Sequence Diagram" width="600"/> 
+</p>
