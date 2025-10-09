@@ -1,17 +1,14 @@
+// MySwingMVCApp.java: Test driver class to launch and run the Cash Register application using MVC
+// It sets up the model, view, and scanner, and connects them through the controller
 
 public class MySwingMVCApp {
+    public static void main(String[] args) {
+        CashRegister model = new CashRegister("products.txt");// Create the model and load products from file
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		  // Assemble all the pieces of the MVC
-		  Model m = new Model("Sylvain", "Saurel");
-		  View v = new View("MVC with SSaurel");
-		  Controller c = new Controller(m, v);
-		  
-		  // create scanner
-		  Scanner scanner = new Scanner();
-		  
-		  c.initController();
-	}
+        View view = new View("Cash Register");// Create the GUI to display scanned items and subtotal
 
+        Scanner scanner = new Scanner(model);// Create the scanner window to show scanning products in real-time
+
+        Controller controller = new Controller(model, view, scanner);// Connect model, view, and scanner through the controller
+    }
 }
