@@ -68,9 +68,9 @@ The code follows MVC principles but adapts them for **practical Swing applicatio
 ## Output Screenshots 📷
 
 <p align="center">
-  <img src="Images/Output1.png" alt="Output Screenshot" width="700"/> 
+  <img src="Images/Output1.png" alt="Output Screenshot"/> 
 </p>
 
 <p align="center">
-  <img src="Images/Output2.png" alt="Sequence Diagram" width="1000"/> 
+  <img src="Images/Output2.png" alt="Sequence Diagram" /> 
 </p>
